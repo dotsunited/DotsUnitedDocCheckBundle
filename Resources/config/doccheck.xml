@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="dotsunited_doccheck.templating.helper.class">DotsUnited\DocCheckBundle\Templating\Helper\DocCheckHelper</parameter>
+        <parameter key="dotsunited_doccheck.twig.extension.class">DotsUnited\DocCheckBundle\Twig\Extension\DocCheckExtension</parameter>
+        <parameter key="dotsunited_doccheck.login_form.template">s_red</parameter>
+        <parameter key="dotsunited_doccheck.login_form.base_url">http://login.doccheck.com/code</parameter>
+        <parameter key="dotsunited_doccheck.login_form.append_session_id">false</parameter>
+        <parameter key="dotsunited_doccheck.login_form.special_parameters"></parameter>
+        <parameter key="dotsunited_doccheck.login_form.csrf_protection">%form.csrf_protection.enabled%</parameter>
+        <parameter key="dotsunited_doccheck.login_form.csrf_field_name">%form.csrf_protection.field_name%</parameter>
+        <parameter key="dotsunited_doccheck.login_form.csrf_page_id">dotsunited_doccheck_anonymous_login</parameter>
+        <parameter key="dotsunited_doccheck.login_form.secret">%form.csrf_protection.secret%</parameter>
+        <parameter key="dotsunited_doccheck.login_form.csrf_provider.class">%form.csrf_provider.class%</parameter>
+        <parameter key="dotsunited_doccheck.login_form.context.class">%form.context.class%</parameter>
+    </parameters>
+
+    <services>
+        <service id="dotsunited_doccheck.login_form.csrf_provider" class="%dotsunited_doccheck.login_form.csrf_provider.class%">
+            <argument type="service" id="session" />
+            <argument>%dotsunited_doccheck.login_form.secret%</argument>
+        </service>
+
+        <service id="dotsunited_doccheck.login_form.context" class="%dotsunited_doccheck.login_form.context.class%">
+            <argument type="collection">
+                <argument key="template">%dotsunited_doccheck.login_form.template%</argument>
+                <argument key="base_url">%dotsunited_doccheck.login_form.base_url%</argument>
+                <argument key="append_session_id">%dotsunited_doccheck.login_form.append_session_id%</argument>
+                <argument key="special_parameters">%dotsunited_doccheck.login_form.special_parameters%</argument>
+                <argument key="csrf_protection">%dotsunited_doccheck.login_form.csrf_protection%</argument>
+                <argument key="csrf_field_name">%dotsunited_doccheck.login_form.csrf_field_name%</argument>
+                <argument key="csrf_page_id">%dotsunited_doccheck.login_form.csrf_page_id%</argument>
+                <argument key="csrf_provider" type="service" id="dotsunited_doccheck.login_form.csrf_provider" />
+            </argument>
+        </service>
+
+        <service id="dotsunited_doccheck.templating.helper" class="%dotsunited_doccheck.templating.helper.class%">
+            <argument type="service" id="templating" />
+            <argument type="service" id="request" strict="false" />
+            <argument>%dotsunited_doccheck.login_id%</argument>
+            <argument type="service" id="dotsunited_doccheck.login_form.context" strict="false" />
+            <tag name="templating.helper" alias="doccheck" />
+        </service>
+
+        <service id="dotsunited_doccheck.twig.extension" class="%dotsunited_doccheck.twig.extension.class%">
+            <argument type="service" id="service_container" />
+            <tag name="twig.extension" />
+        </service>
+
+    </services>
+</container>
+

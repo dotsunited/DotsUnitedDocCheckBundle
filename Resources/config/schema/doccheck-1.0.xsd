@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xsd:schema xmlns="http://symfony.com/schema/dic/dotsunited/doccheck"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://symfony.com/schema/dic/dotsunited/doccheck"
+    elementFormDefault="qualified">
+
+    <xsd:element name="config" type="config" />
+
+    <xsd:complexType name="config">
+        <xsd:all>
+            <xsd:element name="login-form" type="login_form" minOccurs="0" maxOccurs="1" />
+        </xsd:all>
+
+        <xsd:attribute name="login-id" type="xsd:integer" />
+    </xsd:complexType>
+
+    <xsd:complexType name="login_form">
+        <xsd:attribute name="template" type="xsd:string" />
+        <xsd:attribute name="base-url" type="xsd:string" />
+        <xsd:attribute name="append-session-id" type="xsd:boolean" />
+        <xsd:attribute name="special-parameters" type="xsd:string" />
+        <xsd:attribute name="csrf-protection" type="xsd:boolean" />
+        <xsd:attribute name="csrf-field-name" type="xsd:string" />
+        <xsd:attribute name="secret" type="xsd:string" />
+    </xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dots-united-doc-check="http://symfony.com/schema/dic/dotsunited/doccheck"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd
+                        http://symfony.com/schema/dic/symfony http://symfony.com/schema/dic/symfony/symfony-1.0.xsd">
+
+    <dots-united-doc-check:config login-id="123456789">
+        <dots-united-doc-check:login-form template="xl_red" base-url="http://example.com" append-session-id="true" special-parameters="special1=foo" csrf-protection="false" csrf-field-name="_doccheck_token" secret="$3cr3t" />
+    </dots-united-doc-check:config>
+</container>

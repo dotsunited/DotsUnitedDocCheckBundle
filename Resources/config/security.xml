@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="dotsunited_doccheck.security.authentication.provider.class">DotsUnited\DocCheckBundle\Security\Authentication\Provider\DocCheckAuthenticationProvider</parameter>
+        <parameter key="dotsunited_doccheck.security.authentication.listener.class">DotsUnited\DocCheckBundle\Security\Firewall\DocCheckAuthenticationListener</parameter>
+        <parameter key="dotsunited_doccheck.security.authentication.entry_point.class">DotsUnited\DocCheckBundle\Security\EntryPoint\DocCheckAuthenticationEntryPoint</parameter>
+    </parameters>
+
+    <services>
+        <service id="dotsunited_doccheck.security.authentication.provider" class="%dotsunited_doccheck.security.authentication.provider.class%" public="false">
+            <argument /> <!-- Key -->
+            <argument type="collection" /> <!-- Roles -->
+        </service>
+
+        <service id="dotsunited_doccheck.security.authentication.listener"
+                 class="%dotsunited_doccheck.security.authentication.listener.class%"
+                 parent="security.authentication.listener.abstract"
+                 abstract="true">
+        </service>
+
+        <service id="dotsunited_doccheck.security.authentication.entry_point" class="%dotsunited_doccheck.security.authentication.entry_point.class%" public="false" abstract="true">
+            <argument type="service" id="http_kernel" />
+        </service>
+
+    </services>
+</container>
