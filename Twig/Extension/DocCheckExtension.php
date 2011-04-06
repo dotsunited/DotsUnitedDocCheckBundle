@@ -57,6 +57,6 @@ class DocCheckExtension extends \Twig_Extension
      */
     public function renderLoginForm($options = array(), $name = null)
     {
-        return $this->container->get('dotsunited_doccheck.templating.helper')->loginForm($options, $name ?: 'DotsUnitedDocCheck::loginForm.html.twig');
+        return $this->container->get('dotsunited_doccheck.templating.helper')->loginForm($options, $name ?: 'DotsUnitedDocCheckBundle::loginForm.html.twig');
     }
 }

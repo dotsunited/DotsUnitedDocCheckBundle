@@ -140,7 +140,7 @@ class DocCheckHelper extends Helper
      */
     public function loginForm($options = array(), $name = null)
     {
-        $name = $name ?: 'DotsUnitedDocCheck::loginForm.html.php';
+        $name = $name ?: 'DotsUnitedDocCheckBundle::loginForm.html.php';
 
         $session = $this->request->getSession();
 
