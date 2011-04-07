@@ -63,12 +63,4 @@ class DotsUnitedDocCheckExtension extends Extension
     {
         return __DIR__ . '/../Resources/config/schema';
     }
-
-    /**
-     * @codeCoverageIgnore
-     */
-    public function getNamespace()
-    {
-        return 'http://symfony.com/schema/dic/dotsunited/doccheck';
-    }
 }
