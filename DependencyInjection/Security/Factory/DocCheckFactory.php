@@ -61,8 +61,8 @@ class DocCheckFactory extends AbstractFactory
 
         $definition = $container
             ->setDefinition($providerId, new DefinitionDecorator('dotsunited_doccheck.security.authentication.provider'))
-            ->setArgument(0, $config['key'])
-            ->setArgument(1, $config['roles'])
+            ->replaceArgument(0, $config['key'])
+            ->replaceArgument(1, $config['roles'])
         ;
 
         if (isset($config['provider'])) {

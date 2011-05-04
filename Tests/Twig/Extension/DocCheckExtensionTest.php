@@ -27,7 +27,7 @@ class DocCheckExtensionTest extends \PHPUnit_Framework_TestCase
         $helper
             ->expects($this->once())
             ->method('loginForm')
-            ->with(array(), 'DotsUnitedDocCheck::loginForm.html.twig')
+            ->with(array(), 'DotsUnitedDocCheckBundle::loginForm.html.twig')
             ->will($this->returnValue($expected));
 
         $container = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerInterface')

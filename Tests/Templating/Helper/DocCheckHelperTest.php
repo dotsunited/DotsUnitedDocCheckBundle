@@ -54,7 +54,7 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
         $templating
             ->expects($this->once())
             ->method('render')
-            ->with('DotsUnitedDocCheck::loginForm.html.php', array(
+            ->with('DotsUnitedDocCheckBundle::loginForm.html.php', array(
                 'loginUrl' => 'http://example.com/456/de/xl_red/' . session_name() . '=abcdefg/special1=foo',
                 'width'    => 467,
                 'height'   => 231,
@@ -62,16 +62,7 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ))
             ->will($this->returnValue($expected));
 
-        $context = $this->getMockBuilder('Symfony\Component\Form\FormContextInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $context
-            ->expects($this->once())
-            ->method('getOptions')
-            ->will($this->returnValue(array()));
-
-        $helper = new DocCheckHelper($templating, $request, 123, $context);
+        $helper = new DocCheckHelper($templating, $request, 123);
 
         $options = array(
             'template'           => 'xl_red',
@@ -116,7 +107,7 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
         $templating
             ->expects($this->once())
             ->method('render')
-            ->with('DotsUnitedDocCheck::loginForm.html.php', array(
+            ->with('DotsUnitedDocCheckBundle::loginForm.html.php', array(
                 'loginUrl' => 'http://login.doccheck.com/code/123/com/s_red/special1=foo/special2=bar',
                 'width'    => 156,
                 'height'   => 203,
@@ -124,16 +115,7 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ))
             ->will($this->returnValue($expected));
 
-        $context = $this->getMockBuilder('Symfony\Component\Form\FormContextInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $context
-            ->expects($this->once())
-            ->method('getOptions')
-            ->will($this->returnValue(array()));
-
-        $helper = new DocCheckHelper($templating, $request, 123, $context);
+        $helper = new DocCheckHelper($templating, $request, 123);
 
         $options = array(
             'special_parameters' => 'special1=foo&special2=bar'
@@ -171,7 +153,7 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
         $templating
             ->expects($this->once())
             ->method('render')
-            ->with('DotsUnitedDocCheck::loginForm.html.php', array(
+            ->with('DotsUnitedDocCheckBundle::loginForm.html.php', array(
                 'loginUrl' => 'http://login.doccheck.com/code/123/com/s_red/_token=1234567890',
                 'width'    => 156,
                 'height'   => 203,
@@ -179,18 +161,9 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ))
             ->will($this->returnValue($expected));
 
-        $context = $this->getMockBuilder('Symfony\Component\Form\FormContextInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
+        $helper = new DocCheckHelper($templating, $request, 123);
 
-        $context
-            ->expects($this->once())
-            ->method('getOptions')
-            ->will($this->returnValue(array()));
-
-        $helper = new DocCheckHelper($templating, $request, 123, $context);
-
-        $csrfProvider = $this->getMockBuilder('Symfony\Component\Form\CsrfProvider\CsrfProviderInterface')
+        $csrfProvider = $this->getMockBuilder('Symfony\Component\Form\Extension\Csrf\CsrfProvider\CsrfProviderInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -238,16 +211,7 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ->expects($this->never())
             ->method('render');
 
-        $context = $this->getMockBuilder('Symfony\Component\Form\FormContextInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $context
-            ->expects($this->once())
-            ->method('getOptions')
-            ->will($this->returnValue(array()));
-
-        $helper = new DocCheckHelper($templating, $request, 123, $context);
+        $helper = new DocCheckHelper($templating, $request, 123);
 
         $options = array(
             'csrf_provider' => new \stdClass
@@ -285,7 +249,7 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
         $templating
             ->expects($this->once())
             ->method('render')
-            ->with('DotsUnitedDocCheck::loginForm.html.php', array(
+            ->with('DotsUnitedDocCheckBundle::loginForm.html.php', array(
                 'loginUrl' => 'http://login.doccheck.com/code/123/com/custom',
                 'width'    => 123,
                 'height'   => 456,
@@ -293,16 +257,7 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ))
             ->will($this->returnValue($expected));
 
-        $context = $this->getMockBuilder('Symfony\Component\Form\FormContextInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $context
-            ->expects($this->once())
-            ->method('getOptions')
-            ->will($this->returnValue(array()));
-
-        $helper = new DocCheckHelper($templating, $request, 123, $context);
+        $helper = new DocCheckHelper($templating, $request, 123);
 
         $helper->addTemplate('custom', array(
             'width'  => 123,
@@ -346,7 +301,7 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
         $templating
             ->expects($this->once())
             ->method('render')
-            ->with('DotsUnitedDocCheck::loginForm.html.php', array(
+            ->with('DotsUnitedDocCheckBundle::loginForm.html.php', array(
                 'loginUrl' => 'http://login.doccheck.com/code/123/ba/s_red',
                 'width'    => 156,
                 'height'   => 203,
@@ -354,16 +309,7 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ))
             ->will($this->returnValue($expected));
 
-        $context = $this->getMockBuilder('Symfony\Component\Form\FormContextInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $context
-            ->expects($this->once())
-            ->method('getOptions')
-            ->will($this->returnValue(array()));
-
-        $helper = new DocCheckHelper($templating, $request, 123, $context);
+        $helper = new DocCheckHelper($templating, $request, 123);
 
         $helper->addLocale('fo', 'ba');
 
@@ -399,7 +345,7 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
         $templating
             ->expects($this->once())
             ->method('render')
-            ->with('DotsUnitedDocCheck::loginForm.html.php', array(
+            ->with('DotsUnitedDocCheckBundle::loginForm.html.php', array(
                 'loginUrl' => 'http://login.doccheck.com/code/123/com/s_red',
                 'width'    => 156,
                 'height'   => 203,
@@ -407,16 +353,7 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ))
             ->will($this->returnValue($expected));
 
-        $context = $this->getMockBuilder('Symfony\Component\Form\FormContextInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $context
-            ->expects($this->once())
-            ->method('getOptions')
-            ->will($this->returnValue(array()));
-
-        $helper = new DocCheckHelper($templating, $request, 123, $context);
+        $helper = new DocCheckHelper($templating, $request, 123);
 
         $this->assertSame($expected, $helper->loginForm());
     }
@@ -431,11 +368,7 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $context = $this->getMockBuilder('Symfony\Component\Form\FormContextInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $helper = new DocCheckHelper($templating, $request, 123, $context);
+        $helper = new DocCheckHelper($templating, $request, 123);
 
         $this->assertEquals('doccheck', $helper->getName());
     }

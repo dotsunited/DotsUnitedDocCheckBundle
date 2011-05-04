@@ -15,7 +15,7 @@ use Symfony\Component\Templating\Helper\Helper;
 use Symfony\Component\Templating\EngineInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\FormContextInterface;
-use Symfony\Component\Form\CsrfProvider\CsrfProviderInterface;
+use Symfony\Component\Form\Extension\Csrf\CsrfProvider\CsrfProviderInterface;
 
 class DocCheckHelper extends Helper
 {
@@ -35,9 +35,9 @@ class DocCheckHelper extends Helper
     private $loginId;
 
     /**
-     * @var FormContextInterface
+     * @var array
      */
-    private $context;
+    private $options;
 
     /**
      * @var array
@@ -91,12 +91,12 @@ class DocCheckHelper extends Helper
      * @param integer $loginId
      * @param FormContextInterface $context
      */
-    public function __construct(EngineInterface $templating, Request $request, $loginId, FormContextInterface $context)
+    public function __construct(EngineInterface $templating, Request $request, $loginId, array $options = array())
     {
         $this->templating = $templating;
         $this->request    = $request;
         $this->loginId    = $loginId;
-        $this->context    = $context;
+        $this->options    = $options;
     }
 
     /**
@@ -144,7 +144,7 @@ class DocCheckHelper extends Helper
 
         $session = $this->request->getSession();
 
-        $options += $this->context->getOptions();
+        $options += $this->options;
 
         $options += array(
             'template'           => 's_red',
