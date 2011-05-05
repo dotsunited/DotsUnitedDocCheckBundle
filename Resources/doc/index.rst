@@ -25,9 +25,9 @@ Installation
     public function registerBundles()
     {
         return array(
-        // ...
-        new DotsUnited\DocCheckBundle\DotsUnitedDocCheckBundle(),
-        // ...
+            // ...
+            new DotsUnited\DocCheckBundle\DotsUnitedDocCheckBundle(),
+            // ...
         );
     }
 
@@ -51,7 +51,6 @@ Installation
 5. Create a login controller::
 
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-    use Symfony\Component\Security\Core\SecurityContext;
 
     class SecurityController extends Controller
     {
@@ -77,7 +76,7 @@ Installation
          login_id="123456879"
     />
 
-8. Configure the security security component::
+8. Configure the security component::
 
     # app/config/config.yml
     security:
