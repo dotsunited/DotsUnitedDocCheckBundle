@@ -15,7 +15,7 @@
         <parameter key="dotsunited_doccheck.login_form.csrf_field_name">_token</parameter>
         <parameter key="dotsunited_doccheck.login_form.csrf_page_id">dotsunited_doccheck_anonymous_login</parameter>
         <parameter key="dotsunited_doccheck.login_form.secret">%kernel.secret%</parameter>
-        <parameter key="dotsunited_doccheck.login_form.csrf_provider.class">%form.csrf_provider.class%</parameter>
+        <parameter key="dotsunited_doccheck.login_form.csrf_provider.class">Symfony\Component\Form\Extension\Csrf\CsrfProvider\SessionCsrfProvider</parameter>
     </parameters>
 
     <services>
