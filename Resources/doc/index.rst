@@ -1,15 +1,15 @@
-================
- DocCheckBundle
-================
+==========================
+ DotsUnitedDocCheckBundle
+==========================
 
 Integrate authentication via `DocCheck <http://www.doccheck.com/info_dc_password/>`_ into your Symfony2 application.
 
 Installation
 ============
 
-1. Add ``DocCheckBundle`` to your ``vendor/bundles/`` dir::
+1. Add this bundle to your project as a Git submodule::
 
-	    $ git submodule add git://github.com/DotsUnited/DocCheckBundle.git vendor/bundles/DotsUnited/DocCheckBundle
+	    $ git submodule add git://github.com/DotsUnited/DotsUnitedDocCheckBundle.git vendor/bundles/DotsUnited/DocCheckBundle
 
 2. Add the ``DotsUnited`` namespace to your autoloader::
 	
@@ -19,7 +19,7 @@ Installation
         // your other namespaces
     );
 
-3. Add ``DocCheckBundle`` to your application kernel::
+3. Add this bundle to your application's kernel::
 
     // app/AppKernel.php
     public function registerBundles()
