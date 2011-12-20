@@ -23,11 +23,6 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
 
         $session
             ->expects($this->once())
-            ->method('getLocale')
-            ->will($this->returnValue('en'));
-
-        $session
-            ->expects($this->once())
             ->method('getId')
             ->will($this->returnValue('abcdefg'));
 
@@ -44,6 +39,11 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('getSession')
             ->will($this->returnValue($session));
+        
+        $request
+            ->expects($this->once())
+            ->method('getLocale')
+            ->will($this->returnValue('en'));
 
         $expected = new \stdClass;
 
@@ -84,11 +84,6 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $session
-            ->expects($this->once())
-            ->method('getLocale')
-            ->will($this->returnValue('en'));
-
         $request = $this->getMockBuilder('Symfony\Component\HttpFoundation\Request')
             ->disableOriginalConstructor()
             ->getMock();
@@ -97,6 +92,11 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('getSession')
             ->will($this->returnValue($session));
+        
+        $request
+            ->expects($this->once())
+            ->method('getLocale')
+            ->will($this->returnValue('en'));
 
         $expected = new \stdClass;
 
@@ -130,11 +130,6 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $session
-            ->expects($this->once())
-            ->method('getLocale')
-            ->will($this->returnValue('en'));
-
         $request = $this->getMockBuilder('Symfony\Component\HttpFoundation\Request')
             ->disableOriginalConstructor()
             ->getMock();
@@ -143,6 +138,11 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('getSession')
             ->will($this->returnValue($session));
+        
+        $request
+            ->expects($this->once())
+            ->method('getLocale')
+            ->will($this->returnValue('en'));
 
         $expected = new \stdClass;
 
@@ -189,11 +189,6 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $session
-            ->expects($this->once())
-            ->method('getLocale')
-            ->will($this->returnValue('en'));
-
         $request = $this->getMockBuilder('Symfony\Component\HttpFoundation\Request')
             ->disableOriginalConstructor()
             ->getMock();
@@ -202,6 +197,11 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('getSession')
             ->will($this->returnValue($session));
+        
+        $request
+            ->expects($this->once())
+            ->method('getLocale')
+            ->will($this->returnValue('en'));
 
         $templating = $this->getMockBuilder('Symfony\Component\Templating\DelegatingEngine')
             ->disableOriginalConstructor()
@@ -226,11 +226,6 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $session
-            ->expects($this->once())
-            ->method('getLocale')
-            ->will($this->returnValue('en'));
-
         $request = $this->getMockBuilder('Symfony\Component\HttpFoundation\Request')
             ->disableOriginalConstructor()
             ->getMock();
@@ -239,6 +234,11 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('getSession')
             ->will($this->returnValue($session));
+        
+        $request
+            ->expects($this->once())
+            ->method('getLocale')
+            ->will($this->returnValue('en'));
 
         $expected = new \stdClass;
 
@@ -278,11 +278,6 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $session
-            ->expects($this->once())
-            ->method('getLocale')
-            ->will($this->returnValue('fo_BA'));
-
         $request = $this->getMockBuilder('Symfony\Component\HttpFoundation\Request')
             ->disableOriginalConstructor()
             ->getMock();
@@ -291,6 +286,11 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('getSession')
             ->will($this->returnValue($session));
+        
+        $request
+            ->expects($this->once())
+            ->method('getLocale')
+            ->will($this->returnValue('en'));
 
         $expected = new \stdClass;
 
@@ -322,11 +322,6 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $session
-            ->expects($this->once())
-            ->method('getLocale')
-            ->will($this->returnValue('foo'));
-
         $request = $this->getMockBuilder('Symfony\Component\HttpFoundation\Request')
             ->disableOriginalConstructor()
             ->getMock();
@@ -335,6 +330,11 @@ class DocCheckHelperTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('getSession')
             ->will($this->returnValue($session));
+        
+        $request
+            ->expects($this->once())
+            ->method('getLocale')
+            ->will($this->returnValue('en'));
 
         $expected = new \stdClass;
 

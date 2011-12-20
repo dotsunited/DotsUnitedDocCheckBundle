@@ -151,7 +151,7 @@ class DocCheckHelper extends Helper
             'login_id'           => (string) $this->loginId,
             'base_url'           => 'http://login.doccheck.com/code',
             'append_session_id'  => false,
-            'locale'             => $session->getLocale(),
+            'locale'             => $this->request->getLocale(),
             'special_parameters' => array(),
             'csrf_provider'      => null,
             'csrf_field_name'    => '_token',

@@ -35,7 +35,7 @@ class DocCheckFactory extends AbstractFactory
 
     public function getKey()
     {
-        return 'dotsunited-doccheck';
+        return 'dotsunited_doccheck';
     }
 
     public function addConfiguration(NodeDefinition $node)
